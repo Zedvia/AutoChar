@@ -245,10 +245,7 @@ class Script(scripts.Script):
             image = np.array(image)
 
             # Load the model
-            try:
-                weights = os.path.join(directory, "face_detection_yunet_2023mar.onnx")
-            except:
-                weights = os.path.join(directory, "face_detection_yunet_2022mar.onnx")
+            weights = os.path.join(directory, "face_detection_yunet_2023mar.onnx")
                 
             face_detector = cv2.FaceDetectorYN_create(weights, "", (0, 0), face_confidence_threshold)
 
