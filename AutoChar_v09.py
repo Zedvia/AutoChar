@@ -52,7 +52,7 @@ class Script(scripts.Script):
         with gr.Row():
             ui_upscaler_1 = gr.Radio(
                 ["Latent (bicubic antialiased)", "Latent", "ESRGAN_4x", "R-ESRGAN 4x+ Anime6B", "R-ESRGAN 4x+", "4x-UltraSharp", "None"], label="Upscaler 1 (High-Res Fix)",
-                value="Latent (bicubic antialiased)",
+                value="R-ESRGAN 4x+ Anime6B",
 
                 elem_id=self.elem_id("ui_upscaler_1")
             )
@@ -61,7 +61,7 @@ class Script(scripts.Script):
 
             ui_upscaler_2 = gr.Radio(
                 [x.name for x in shared.sd_upscalers], label="Upscaler 2 (SD Upscale)",
-                value="Nearest",
+                value="R-ESRGAN 4x+ Anime6B",
                 type="index",
                 elem_id=self.elem_id("ui_upscaler_2")
             )
@@ -248,7 +248,7 @@ class Script(scripts.Script):
             except:
                 weights = os.path.join(directory, "face_detection_yunet_2022mar.onnx")
                 
-            face_detector = cv2.FaceDetectorYN_create(weights, "", (0, 0))
+            face_detector = cv2.FaceDetectorYN_create(weights, "", (0, 0), 0.7)
 
             # Face detection
 
