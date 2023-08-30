@@ -394,6 +394,7 @@ class Script(scripts.Script):
                 print('txt2img+hr fix \n upscaler:', upscaler)
 
             # Change parameters
+            p.outpath_samples = opts.outdir_img2img_samples
             p.enable_hr = True
             p.denoising_strength = first_denoise
             p.hr_scale = scale_factor0
